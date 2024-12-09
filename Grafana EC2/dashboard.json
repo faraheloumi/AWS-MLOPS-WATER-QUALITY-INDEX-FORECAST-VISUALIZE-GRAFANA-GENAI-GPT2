@@ -1,0 +1,780 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 1,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-athena-datasource",
+        "uid": "ce4xb5oe91u68c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-green",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 50
+              },
+              {
+                "color": "#EAB839",
+                "value": 100
+              },
+              {
+                "color": "orange",
+                "value": 200
+              },
+              {
+                "color": "dark-red",
+                "value": 300
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "basemap": {
+          "config": {
+            "server": "streets",
+            "showLabels": true,
+            "theme": "auto"
+          },
+          "name": "Layer 0",
+          "opacity": 1,
+          "type": "osm-standard"
+        },
+        "controls": {
+          "mouseWheelZoom": true,
+          "showAttribution": true,
+          "showDebug": false,
+          "showMeasure": false,
+          "showScale": false,
+          "showZoom": true
+        },
+        "layers": [
+          {
+            "config": {
+              "showLegend": true,
+              "style": {
+                "color": {
+                  "field": "wqi",
+                  "fixed": "dark-green"
+                },
+                "opacity": 0.5,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 5,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/circle.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "WQI Values",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "blur": 15,
+              "radius": 10,
+              "weight": {
+                "field": "wqi",
+                "fixed": 1,
+                "max": 1,
+                "min": 0
+              }
+            },
+            "location": {
+              "mode": "auto"
+            },
+            "name": "Layer 2",
+            "opacity": 0.4,
+            "tooltip": true,
+            "type": "heatmap"
+          }
+        ],
+        "tooltip": {
+          "mode": "details"
+        },
+        "view": {
+          "allLayers": true,
+          "id": "coords",
+          "lat": 22.3511148,
+          "lon": 78.6677428,
+          "zoom": 4
+        }
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "column": "year",
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "datasource": {
+            "type": "grafana-athena-datasource",
+            "uid": "ce4xb5oe91u68c"
+          },
+          "format": 0,
+          "rawSQL": "SELECT \r\n    \"location name\",\r\n    \"state name\",\r\n    \"dissolved oxygen\",\r\n    \"ph\",\r\n    \"conductivity\",\r\n    \"bod\",\r\n    \"nitrate n + nitrite n\",\r\n    \"fecal coliform\",\r\n    \"total coliform\",\r\n    \"wqi\",\r\n    \"lat\",\r\n    \"lon\",\r\n    \"processed_timestamp\",\r\n    \"stn_code\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE \"year\" = '$year';\r\n",
+          "refId": "A",
+          "table": "water_data"
+        }
+      ],
+      "title": "Water Data on Lakes in India in $year",
+      "type": "geomap"
+    },
+    {
+      "datasource": {
+        "type": "grafana-athena-datasource",
+        "uid": "ce4xb5oe91u68c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": ["wqi"],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 10
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "year"
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT \r\n    CAST(\"year\" as INT) AS \"year\",\r\n    \"dissolved oxygen\",\r\n    \"location name\",\r\n    \"state name\",\r\n    \"ph\",\r\n    \"conductivity\",\r\n    \"bod\",\r\n    \"nitrate n + nitrite n\",\r\n    \"fecal coliform\",\r\n    \"total coliform\",\r\n    \"wqi\",\r\n    \"lat\",\r\n    \"lon\",\r\n    \"stn_code\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) BETWEEN 2017 AND 2024\r\nAND \"stn_code\" = '$stn_code'\r\nORDER BY \"year\" ASC;\r\n",
+          "refId": "A"
+        }
+      ],
+      "title": "Water Trends @ $location_name",
+      "type": "trend"
+    },
+    {
+      "datasource": {
+        "type": "grafana-athena-datasource",
+        "uid": "ce4xb5oe91u68c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#e0dbd7",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WQI"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "dark-green",
+                      "value": null
+                    },
+                    {
+                      "color": "green",
+                      "value": 50
+                    },
+                    {
+                      "color": "yellow",
+                      "value": 100
+                    },
+                    {
+                      "color": "orange",
+                      "value": 200
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 300
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 13,
+        "x": 11,
+        "y": 10
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT \r\n    \"dissolved oxygen\",\r\n    \"location name\",\r\n    \"ph\",\r\n    \"conductivity\",\r\n    \"bod\",\r\n    \"nitrate n + nitrite n\",\r\n    \"fecal coliform\",\r\n    \"total coliform\",\r\n    \"wqi\" AS \"WQI\",\r\n    \"stn_code\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'",
+          "refId": "A"
+        }
+      ],
+      "title": "$location_name in $year",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "uid": "be60ol1k8xbeob"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": true
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 4,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": ["sum"],
+          "show": false
+        },
+        "showHeader": false
+      },
+      "pluginVersion": "11.3.1",
+      "targets": [
+        {
+          "columns": [],
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "/lake_summary?lake=$location_name&dissolved_oxygen=$dissolved_oxygen&year=$year&ph=$ph&conductivity=$conductivity&bod=$bod&nitrate_nitrite=$nitrate&fecal_coliform=$fecal_coliform&total_coliform=$total_coliform&wqi=$water_index",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "Water Condition at $location_name",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "4.9",
+          "value": "4.9"
+        },
+        "definition": "",
+        "hide": 2,
+        "includeAll": false,
+        "label": "dissolved_oxygen",
+        "name": "dissolved_oxygen",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT \r\n    CAST(\"dissolved oxygen\" AS VARCHAR) AS \"DO\",\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'\r\n"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "2021",
+          "value": "2021"
+        },
+        "definition": "",
+        "description": "",
+        "label": "year",
+        "name": "year",
+        "options": [],
+        "query": {
+          "column": "$year",
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT \"year\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nORDER BY \"year\" ASC",
+          "table": "water_data"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "2353",
+          "value": "2353"
+        },
+        "label": "station code",
+        "name": "stn_code",
+        "options": [
+          {
+            "selected": true,
+            "text": "2353",
+            "value": "2353"
+          }
+        ],
+        "query": "2353",
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "text": "KONDAKARLA-AAVA LAKE",
+          "value": "KONDAKARLA-AAVA LAKE"
+        },
+        "definition": "",
+        "description": "",
+        "hide": 2,
+        "label": "location name",
+        "name": "location_name",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT \"location name\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"stn_code\" AS INT) = $stn_code \r\nLIMIT 1"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "82.4073901527983",
+          "value": "82.4073901527983"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "water_index",
+        "name": "water_index",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"wqi\" AS VARCHAR) AS \"WQI\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "7.35",
+          "value": "7.35"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "ph",
+        "name": "ph",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT     CAST(\"ph\" AS VARCHAR) AS \"ph\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"stn_code\" AS INT) = $stn_code \r\nLIMIT 1"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "889.0",
+          "value": "889.0"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "conductivity",
+        "name": "conductivity",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"conductivity\" AS VARCHAR) AS \"conductivity\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "3.25",
+          "value": "3.25"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "bod",
+        "name": "bod",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"bod\" AS VARCHAR) AS \"bod\"\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "2.165",
+          "value": "2.165"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "nitrate",
+        "name": "nitrate",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"nitrate n + nitrite n\" AS VARCHAR)\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "19",
+          "value": "19"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "fecal_coliform",
+        "name": "fecal_coliform",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"fecal coliform\" AS VARCHAR)\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'\r\n"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "195",
+          "value": "195"
+        },
+        "definition": "",
+        "hide": 2,
+        "label": "total coliform",
+        "name": "total_coliform",
+        "options": [],
+        "query": {
+          "connectionArgs": {
+            "catalog": "__default",
+            "database": "__default",
+            "region": "__default",
+            "resultReuseEnabled": false,
+            "resultReuseMaxAgeInMinutes": 60
+          },
+          "format": 1,
+          "rawSQL": "SELECT CAST(\"total coliform\" AS VARCHAR)\r\nFROM \"water-catalogue\".\"water_data\"\r\nWHERE CAST(\"year\" AS INT) = $year\r\nAND \"stn_code\" = '$stn_code'"
+        },
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "aws-dashboard",
+  "uid": "fe4xc5cpw3ksga",
+  "version": 59,
+  "weekStart": ""
+}
