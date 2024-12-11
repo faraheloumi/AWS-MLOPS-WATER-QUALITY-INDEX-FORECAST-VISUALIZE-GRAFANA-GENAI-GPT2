@@ -6,9 +6,9 @@
 - [📁 Directory Structure](#-directory-structure)
 - [🏗️ Project Architecture](#%EF%B8%8F-project-architecture)
 - [📜 Data](#-data)
-  - [Data Description](#data-description)
-  - [Data Preparation](#data-preparation)
-- [🤖 Model](#-model)
+  - [📝 Data Description](#data-description)
+  - [🔄 Data Preparation](#data-preparation)
+- [🧠 Model](#-model)
 - [🤖 LLM](#-llm)
 - [☁️ AWS Set Up](#-aws-set-up)
   - [🧱 Architecture Components](#architecture-components)
@@ -98,7 +98,7 @@ project/
 4. **Visualization and Accessibility**: A Grafana dashboard hosted on EC2 visualizes the data, while Ngrok securely exposes a FastAPI interface with an integrated LLM for natural language querying.
 
 ## 📜 Data
-### Data Description
+### 📝 Data Description
 The dataset used in this project spans 6 years (2017–2022), with water quality data collected from numerous monitoring stations (STN codes) across Indian Lakes. For each year, the dataset includes a rich set of features:
 - **Station Details**:  
   - STN Code  
@@ -118,7 +118,7 @@ This dataset provides comprehensive insights into water quality trends, supporti
 
 **Dataset Source**: [NWMP Water Quality Data for Indian Lakes](https://www.kaggle.com/datasets/akkshaysr/nwmp-water-quality-data-for-indian-lakes)
 
-### Data Preparation
+### 🔄 Data Preparation
 In this project, we prepared a comprehensive water quality dataset by focusing on **Indian Lakes** across multiple years. The objective was to consolidate data from different sources and perform necessary data cleaning, transformation, and integration to ensure a robust dataset for analysis and visualization.
 
 #### Key Steps in Data Preparation
@@ -171,7 +171,7 @@ pip install pandas numpy geopy
 ```
 
 
-## 🤖 Model
+## 🧠 Model
 
 ### Water Quality Forecasting with Prophet Model
 
