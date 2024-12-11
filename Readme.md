@@ -355,6 +355,7 @@ ngrok http http://localhost:5000
 - **🤖 Chatbot Descriptive Integration:**
 
 The chatbot embedded in the dashboard can analyze and interpret detailed water quality metrics. It provides accurate insights into trends, parameter changes, and recommendations based on essential metrics.
+
 ![Resultat](./images/resultat.png) 
 
 ## 🔧 Usage
