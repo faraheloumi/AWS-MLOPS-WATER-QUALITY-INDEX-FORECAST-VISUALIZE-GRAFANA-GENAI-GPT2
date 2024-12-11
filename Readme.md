@@ -250,7 +250,7 @@ Returns a JSON object with a detailed summary and recommendations.
 - **API Design**: Flask handles requests and responses, ensuring modularity and ease of use.
 
 
-## ☁️ AWS Set Up
+## ☁️ AWS SetUp
 
 In this phase, we set up a comprehensive cloud architecture on AWS for **data processing, analysis, and real-time visualization** of water quality data. The goal is to collect, preprocess, forecast, and visualize data seamlessly while ensuring scalability and reliability across multiple AWS services.
 
@@ -297,7 +297,7 @@ In this phase, we set up a comprehensive cloud architecture on AWS for **data pr
   - Provides real-time integration for data visualization and forecasting.
 
 
-### ⚙️ Setup Instructions
+### ⚙️ SetUp Instructions
 
 Follow these steps to set up your environment on AWS:
 
