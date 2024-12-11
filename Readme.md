@@ -12,7 +12,7 @@
 - [🤖 LLM](#-llm)
 - [☁️ AWS Set Up](#-aws-set-up)
   - [🧱 Architecture Components](#architecture-components)
-  - [### ⚙️ Set Up Instructions](#set-up-instructions)
+  - [⚙️ Set Up Instructions](#set-up-instructions)
 - [📈 Resultat](#-resultat)
 - [🔧 Usage](#-usage)
 - [🔮 Future Considerations](#-future-considerations)
