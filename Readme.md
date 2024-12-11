@@ -250,6 +250,7 @@ Returns a JSON object with a detailed summary and recommendations.
 - **Processing**: Classifies WQI into categories: `Excellent`, `Good`, `Poor`, `Very Poor`, and `Unsuitable for Drinking`.
 - **API Design**: Flask handles requests and responses, ensuring modularity and ease of use.
 
+
 ## ☁️ AWS Set Up
 
 In this phase, we set up a comprehensive cloud architecture on AWS for **data processing, analysis, and real-time visualization** of water quality data. The goal is to collect, preprocess, forecast, and visualize data seamlessly while ensuring scalability and reliability across multiple AWS services.
@@ -295,6 +296,7 @@ In this phase, we set up a comprehensive cloud architecture on AWS for **data pr
 - **Ngrok + FastAPI**
   - Expose **FastAPI** endpoints to make your API publicly accessible.
   - Provides real-time integration for data visualization and forecasting.
+
 
 ### ⚙️ Setup Instructions
 
