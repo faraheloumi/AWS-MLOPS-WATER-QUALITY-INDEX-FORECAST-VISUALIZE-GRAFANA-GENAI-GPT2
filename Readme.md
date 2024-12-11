@@ -68,10 +68,9 @@ project/
 │   ├──   ├── 2021_lake_data.csv        # Water quality data for the year 2021
 │   ├──   ├── 2022_lake_data.csv        # Water quality data for the year 2022
 │   ├── data-prep.ipynb                 # Data cleaning notebook
-│   ├── filtered_data.csv               # Data contains STN Code,lat,lon
+│   ├── filtered_data.csv               # Dataset includes the following columns: STN Code, Latitude (lat), Longitude (lon)
 │   ├── location_coords_geopy.txt       # Water location coordinates
-│   ├── water_data_final.csv            # Final processed dataset
-│   ├── wqi-prediction.ipynb            # WQI prediction notebook               
+│   ├── water_data_final.csv            # Final processed dataset              
 │
 ├── Grafana EC2/
 │   ├── dashboard.json                  # Grafana dashboard config
