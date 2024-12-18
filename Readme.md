@@ -113,6 +113,7 @@ The dataset used in this project spans 6 years (2017–2022), with water quality
   - **Biochemical Oxygen Demand (BOD)**: Min/Max Levels (mg/L)  
   - **Nitrate and Nitrite Nitrogen**: Min/Max Levels (mg/L)  
   - **Fecal and Total Coliform**
+
 This dataset provides comprehensive insights into water quality trends, supporting robust analysis and predictions. Each year's data encompasses multiple monitoring stations to ensure accurate and diverse coverage.
 
 **Dataset Source**: [NWMP Water Quality Data for Indian Lakes](https://www.kaggle.com/datasets/akkshaysr/nwmp-water-quality-data-for-indian-lakes)
